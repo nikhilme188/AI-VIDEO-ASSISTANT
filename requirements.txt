@@ -13,7 +13,8 @@ langchain-huggingface
 
 langchain-pinecone
 
-openai-whisper
+groq
+
 ffmpeg-python
 
 pydub	#Convert/split audio formats	
@@ -23,7 +24,7 @@ tiktoken
 
 python-dotenv
 
-numpy  #Numerical arrays; used by OpenCV, Whisper, embeddings, audio processing
+numpy  #Numerical arrays; used by embeddings, audio processing
 
 requests
 httpx
@@ -32,9 +33,7 @@ yt-dlp
 
 streamlit
 
-torch # Required by Whisper, Sentence Transformers, and many Hugging Face models.
-#torchvision # Computer vision utilities and pretrained vision models.
-#torchaudio # Audio processing utilities
+pinecone-client
 
 #ragas  Evaluates the quality of a RAG pipeline (context relevance, faithfulness, answer correctness).
 #datasets  Hugging Face library for loading evaluation datasets.
