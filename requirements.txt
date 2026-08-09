@@ -13,7 +13,8 @@ langchain-huggingface
 
 langchain-pinecone
 
-openai-whisper
+pinecone-client
+groq
 ffmpeg-python
 
 pydub	#Convert/split audio formats	
@@ -32,7 +33,7 @@ yt-dlp
 
 streamlit
 
-torch # Required by Whisper, Sentence Transformers, and many Hugging Face models.
+#torch # Required by Whisper, Sentence Transformers, and many Hugging Face models.
 #torchvision # Computer vision utilities and pretrained vision models.
 #torchaudio # Audio processing utilities
 
