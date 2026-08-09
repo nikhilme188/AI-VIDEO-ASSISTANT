@@ -77,10 +77,12 @@ if process:
                 st.success("Meeting processed successfully!")
 
             except Exception as e:
-
-                st.error("Something went wrong.")
-
-                st.exception(e)
+                error_msg = str(e)
+                if "Sign in to confirm you’re not a bot" in error_msg:
+                    st.error("YouTube blocked the download from this cloud server (bot protection). Please download the audio locally and upload the file instead.")
+                else:
+                    st.error("Something went wrong.")
+                    st.exception(e)
 
 
 # --------------------------------------------------

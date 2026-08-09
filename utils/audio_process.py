@@ -24,6 +24,7 @@ def download_youtube_audio(url, output_path=None) -> str:
         'format': 'bestaudio/best',
         'outtmpl': f'{output_path}/%(title)s.%(ext)s',
         "ffmpeg_location": ffmpeg_dir,
+        "extractor_args": {"youtube": {"player_client": ["android"]}},
         "postprocessors": [{
             "key": "FFmpegExtractAudio",
             "preferredcodec": "wav",
