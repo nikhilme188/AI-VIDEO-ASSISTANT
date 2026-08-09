@@ -42,34 +42,47 @@ st.write(
 # Input
 # --------------------------------------------------
 
+import tempfile
+import os
+
 source = st.text_input(
-    "YouTube URL or local file path",
-    placeholder="Enter YouTube URL or file path..."
+    "YouTube URL",
+    placeholder="Enter YouTube URL..."
 )
 
+uploaded_file = st.file_uploader("Or upload an audio file", type=["mp3", "wav", "m4a", "mp4", "webm"])
 
 process = st.button(
     "Process Meeting",
     type="primary"
 )
 
-
 # --------------------------------------------------
 # Run your existing pipeline
 # --------------------------------------------------
 
 if process:
-
-    if not source:
-        st.warning("Please enter a YouTube URL or file path.")
-
+    if not source and not uploaded_file:
+        st.warning("Please enter a YouTube URL or upload a file.")
     else:
-
         with st.spinner("Processing meeting..."):
-
             try:
-
-                result = run_pipeline(source)
+                # If file is uploaded, save it to a temporary file
+                if uploaded_file is not None:
+                    # Create a temporary file
+                    tfile = tempfile.NamedTemporaryFile(delete=False, suffix=f".{uploaded_file.name.split('.')[-1]}") 
+                    tfile.write(uploaded_file.read())
+                    # The source for the pipeline is now the path to this temp file
+                    target_source = tfile.name
+                else:
+                    # Otherwise, use the YouTube URL
+                    target_source = source
+                
+                result = run_pipeline(target_source)
+                
+                # Clean up the temp file if one was created
+                if uploaded_file is not None:
+                    os.remove(target_source)
 
                 st.session_state.result = result
                 st.session_state.chat_history = []

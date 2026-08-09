@@ -68,10 +68,23 @@ def cleanup_files(file_paths: list):
             pass
 
 
-def prepare_audio_chunks(url) -> list:
-    download_path = download_youtube_audio(url)
+def prepare_audio_chunks(url_or_path) -> list:
+    if url_or_path.startswith("http://") or url_or_path.startswith("https://"):
+        # It's a YouTube URL, download it
+        download_path = download_youtube_audio(url_or_path)
+        is_downloaded = True
+    else:
+        # It's already a local file path (e.g., from st.file_uploader)
+        download_path = url_or_path
+        is_downloaded = False
+        
     mono = stereo_to_mono(download_path)
     chunks = chunk_audio(mono)
+    
     # Clean up intermediate files
-    cleanup_files([download_path, mono])
+    files_to_cleanup = [mono]
+    if is_downloaded:
+        files_to_cleanup.append(download_path)
+    
+    cleanup_files(files_to_cleanup)
     return chunks
