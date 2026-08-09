@@ -6,8 +6,8 @@ langchain-text-splitters
 langchain-mistralai
 mistralai
 
-sentence-transformers
-transformers
+#sentence-transformers  
+#transformers
 huggingface-hub
 langchain-huggingface
 

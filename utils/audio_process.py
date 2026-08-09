@@ -71,6 +71,6 @@ def prepare_audio_chunks(url) -> list:
     download_path = download_youtube_audio(url)
     mono = stereo_to_mono(download_path)
     chunks = chunk_audio(mono)
-    # Clean up intermediate files (original download + mono conversion)
+    # Clean up intermediate files
     cleanup_files([download_path, mono])
     return chunks
