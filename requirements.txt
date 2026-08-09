@@ -1,0 +1,45 @@
+langchain
+langchain-community
+langchain-core
+langchain-text-splitters
+
+langchain-mistralai
+mistralai
+
+sentence-transformers
+transformers
+huggingface-hub
+langchain-huggingface
+
+langchain-pinecone
+
+openai-whisper
+ffmpeg-python
+
+pydub	#Convert/split audio formats	
+#soundfile	#Read/write WAV, FLAC, etc.	
+
+tiktoken
+
+python-dotenv
+
+numpy  #Numerical arrays; used by OpenCV, Whisper, embeddings, audio processing
+
+requests
+httpx
+
+yt-dlp
+
+streamlit
+
+torch # Required by Whisper, Sentence Transformers, and many Hugging Face models.
+#torchvision # Computer vision utilities and pretrained vision models.
+#torchaudio # Audio processing utilities
+
+#ragas  Evaluates the quality of a RAG pipeline (context relevance, faithfulness, answer correctness).
+#datasets  Hugging Face library for loading evaluation datasets.
+#pydantic #Data validation
+#aiofiles	#Async file reading/writing for FastAPI	
+#tenacity	#Automatic retries for API calls (e.g., Mistral API)	
+#diskcache	#Cache embeddings/API responses locally	
+#python-multipart	#Required for FastAPI file uploads
